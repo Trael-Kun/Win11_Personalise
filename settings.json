@@ -45,7 +45,7 @@
         [
             {
                 "adjustIndistinguishableColors": "always",
-                "backgroundImage": "C:\\Users\\willw142\\OneDrive - National Archives of Australia\\images\\Corp Teams\\21.09.01 GT_NAPF_2 copy.png",
+                "backgroundImage": "%LocalAppData%\\Backgrounds\\21.09.01 GT_NAPF_2 copy.png",
                 "backgroundImageOpacity": 0.5,
                 "commandline": "%SystemRoot%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
                 "cursorShape": "vintage",
@@ -56,7 +56,7 @@
             },
             {
                 "adjustIndistinguishableColors": "always",
-                "backgroundImage": "C:\\Users\\willw142\\OneDrive - National Archives of Australia\\images\\Corp Teams\\21.09__ GT_NAA.png",
+                "backgroundImage": "%LocalAppData%\\Backgrounds\\21.09__ GT_NAA.png",
                 "backgroundImageAlignment": "topLeft",
                 "backgroundImageOpacity": 0.5,
                 "commandline": "%SystemRoot%\\System32\\cmd.exe",
@@ -82,7 +82,7 @@
             {
                 "altGrAliasing": true,
                 "antialiasingMode": "grayscale",
-                "backgroundImage": "https://github.com/Trael-Kun/Win11_Personailise/blob/main/ihavepower.jpg",
+                "backgroundImage": "%LocalAppData%\\Backgrounds\\ihavethepower(shell).jpg",
                 "backgroundImageOpacity": 0.49,
                 "closeOnExit": "graceful",
                 "colorScheme": "Campbell Powershell",
@@ -98,7 +98,7 @@
                 "hidden": false,
                 "historySize": 9001,
                 "icon": "ms-appx:///ProfileIcons/{61c54bbd-c2c6-5271-96e7-009a87ff44bf}.png",
-                "name": "[Admin] I Have The Power(Shell)",
+                "name": "[ADMIN] I Have The Power(Shell)",
                 "padding": "8, 8, 8, 8",
                 "snapOnInput": true,
                 "startingDirectory": null,
@@ -107,7 +107,7 @@
             {
                 "altGrAliasing": true,
                 "antialiasingMode": "grayscale",
-                "backgroundImage": "C:\\Users\\willw142\\OneDrive - National Archives of Australia\\images\\Backgrounds\\Bunsen2.png",
+                "backgroundImage": "%LocalAppData%\\Backgrounds\\Bunsen2.png",
                 "backgroundImageAlignment": "bottomRight",
                 "backgroundImageOpacity": 0.5,
                 "closeOnExit": "graceful",
@@ -124,7 +124,7 @@
                 "hidden": false,
                 "historySize": 9001,
                 "icon": "ms-appx:///ProfileIcons/{0caa0dad-35be-5f56-a8ff-afceeeaa6101}.png",
-                "name": "[Admin] Cmd, where the future is being made today",
+                "name": "[ADMIN] Cmd, where the future is being made today",
                 "padding": "8, 8, 8, 8",
                 "snapOnInput": true,
                 "startingDirectory": null,
