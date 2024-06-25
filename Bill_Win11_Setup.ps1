@@ -1,6 +1,9 @@
 # Windows 11 Personalisation for Bill
-$BackgroundsDir = "$env:LOCALAPPDATA\Backgrounds"
 
+#Set Paths
+$Blob = 'https://github.com/Trael-Kun/Win11_Personalise/blob/main'
+$BackgroundsDir = "$env:LOCALAPPDATA\Backgrounds"
+$jsonFile = "$env:LOCALAPPDATA\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json"
 
 $NewPaths = @(
     @{Path='HKCU:\Software\Classes\CLSID\';                                                         Name='{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}'}                                  #Full Context Menus
@@ -23,11 +26,14 @@ $NewValues = @(
     @{Path='HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion';                                    PropertyType=STRING;    Name=RegisteredOrganization;    Value='Awesome Inc.'}   # Set Registered Org
     @{Path='HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\MTCUVC';                             PropertyType=DWORD;     Name=EnableMtcUvc;              Value=0}                # Classic Volume Control
 )
+$WebRequests = @(
+    @{URL="$Blob\beakr.jpeg";                                                                       $OutFile=$BackgroundsDir}
+    @{URL="$Blob\Bunsen2.png";                                                                      $OutFile=$BackgroundsDir}
+    @{URL="$Blob\ihavethepower(shell).jpg";                                                         $OutFile=$BackgroundsDir}
+    @{URL="$Blob\settings.json";                                                                    $OutFile=$jsonFile}
+)
 
-#Fetch Files
-Invoke-WebRequest 'https://github.com/Trael-Kun/Win11_Personalise/blob/main/Bunsen2.png' -OutFile $BackgroundsDir
-Invoke-WebRequest 'https://github.com/Trael-Kun/Win11_Personalise/blob/main/ihavethepower(shell).jpg' -OutFile $BackgroundsDir
-Invoke-WebRequest 'https://github.com/Trael-Kun/Win11_Personalise/blob/main/beakr.jpeg' -OutFile $BackgroundsDir
+
 
 # Create New Keys
 foreach ($NewPath in $NewPaths) {
@@ -40,9 +46,12 @@ foreach ($NewValue in $NewValues) {
     New-ItemProperty -Path $NewValue.Path -PropertyType $NewValue.PropertyType -Name $NewValue.Name -Value $NewValue.Value
 }
 
+#Fetch Files
+foreach ($WebRequest in $WebRequests) {
+    Invoke-WebRequest $WebRequest.Path -OutFile $WebRequest.OutFile
+}
+
 #Set Terminal Personalisation
-$jsonFile = "$env:LOCALAPPDATA\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json"
-Invoke-WebRequest 'https://github.com/Trael-Kun/Win11_Personalise/blob/main/settings.json' -OutFile $jsonFile
 $jsonValue = '{
     "$help": "https://aka.ms/terminal-documentation",
     "$schema": "https://aka.ms/terminal-profiles-schema",
