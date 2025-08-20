@@ -18,7 +18,7 @@ $NewValues = @(
     @{Path='HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced\';                    PropertyType=DWORD;     Name=ShowSecondsInSystemClock;  Value=1}                # Show seconds in Taskbar clock
     @{Path='HKCU:\Software\Microsoft\Windows\Themes\Personalize';                                   PropertyType=DWORD;     Name=AppsUseLightTheme;         Value=0}                # Dark mode
     @{Path='HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\PersonalizationCSP';                    PropertyType=DWORD;     Name=LockScreenImageStatus;     Value=00000001}         #Lock Screen
-    @{Path='HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\PersonalizationCSP';                    PropertyType=;          Name=LockScreenImagePath;       Value="$BackgroundsDir\beakr.jpeg"}
+    @{Path='HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\PersonalizationCSP';                    PropertyType=STRING;    Name=LockScreenImagePath;       Value="$BackgroundsDir\beakr.jpeg"}
     @{Path='HKCU:\Software\Microsoft\Windows\CurrentVersion\Policies\System';                       PropertyType=STRING;    Name=Wallpaper                  Value=''}               # Set Wallpaper image
     @{Path='HKCU:\Software\Microsoft\Windows\CurrentVersion\Policies\System';                       PropertyType=STRING;    Name=WallpaperStyle             Value=3}                # Set Wallpaper style (0=Center,1=Tile,2=Stretch,3=Fit,4=Fill,5=Span)
     @{Path='HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer';                              PropertyType=DWORD;     Name=Start_ShowClassicMode;     Value=1}                # Revert to Windows 10-style start menu (I don't think this works)
@@ -37,8 +37,9 @@ $WebRequests = @(
 
 # Create New Keys
 foreach ($NewPath in $NewPaths) {
-    if (!(Test-Path -Path $NewPath.Path))
+    if (!(Test-Path -Path $NewPath.Path)) {
     New-Item -Path $NewPath.Path -Name $NewPath.Path    
+    }
 }
 
 # Create new values
@@ -398,3 +399,4 @@ $jsonValue = '{
     ],
     "themes": []
 }'
+#end
